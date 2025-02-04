@@ -1,15 +1,16 @@
-import { ThemeProvider } from "@/components/theme-provider";
-import Navbar from "./components/navbar";
-import LoginForm from "./components/login-form";
-import Profile from "./components/profile";
+import { RouterProvider } from "react-router";
+import router from "./routes";
+import { ThemeProvider } from "./components/theme-provider";
+import { AuthProvider } from "./context/AuthProvider";
+import { Toaster } from "./components/ui/toaster";
 
 function App() {
   return (
-    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-      <Navbar />
-
-      <LoginForm />
-      <Profile />
+    <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
+      <AuthProvider>
+        <RouterProvider router={router} />
+        <Toaster />
+      </AuthProvider>
     </ThemeProvider>
   );
 }

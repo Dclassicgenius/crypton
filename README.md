@@ -1,50 +1,74 @@
-# React + TypeScript + Vite
+# Crypton - Приложение для Аутентификации
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React-приложение, демонстрирующее реализацию аутентификации с использованием TypeScript, React Query, React Router и компонентов Shadcn/ui.
 
-Currently, two official plugins are available:
+## Возможности
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 🔐 аутентификация
+- 🌓 Переключение темной/светлой темы
+- 🎨 UI с компонентами Shadcn/ui
+- ⚡ производительность с React Query
+- 🔄 Защищенные маршруты
+- ⌨️ Поддержка TypeScript
 
-## Expanding the ESLint configuration
+## Технологии
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- React 18
+- TypeScript
+- React Query
+- React Router v7
+- Shadcn/ui
+- Tailwind CSS
+- Vite
+- Zod
+- Axios
 
-- Configure the top-level `parserOptions` property like this:
+## Установка
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+### Требования
+
+- Node.js 18+
+- npm или yarn
+
+### Инструкция по установке
+
+1. Клонируйте репозиторий:
+
+````bash
+git clone https://github.com/Dclassicgenius/crypton.git
+cd crypton
+
+2. Установите зависимости:
+```bash
+npm install
+# или
+yarn install
+````
+
+3. Создайте файл `.env` в корневой директории проекта со следующим содержимым:
+
+```bash
+VITE_API_URL=your_api_url_here
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+4. Запустите приложение:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+```bash
+npm run dev
+# или
+yarn dev
+```
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+## Структура проекта
+
+```
+src/
+├── api/          # API сервисы и конфигурация axios
+├── components/   # Переиспользуемые компоненты
+├── context/      # React контекст провайдеры
+├── hooks/        # Пользовательские хуки
+├── layouts/      # Компоненты макета
+├── lib/          # Вспомогательные функции
+├── pages/        # Компоненты страниц
+└── routes.tsx    # Определения маршрутов
 ```
