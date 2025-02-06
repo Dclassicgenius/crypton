@@ -22,6 +22,7 @@ import { toast } from "@/hooks/use-toast";
 import { handleApiError } from "@/api/axiosInstance";
 // import { AxiosError } from "axios";
 import { Loader2 } from "lucide-react";
+import axios from "axios";
 
 type Mode = "login" | "register";
 
@@ -67,8 +68,9 @@ const LoginRegisterForm = ({ mode }: LoginRegisterFormProps) => {
 
   const { mutate, isPending, isError, error } = useMutation({
     mutationFn: mode === "register" ? registerUser : loginUser,
-    onSuccess: async (data) => {
+    onSuccess: (data) => {
       login(data.token);
+      axios.defaults.headers.common["Authorization"] = `Bearer ${data.token}`;
       toast({
         title: mode === "register" ? "Регистрация успешна" : "Вход успешен",
         description:
